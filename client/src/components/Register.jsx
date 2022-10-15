@@ -42,6 +42,7 @@ const Register = () => {
       .then((res) => {
         //console.log(res);
         setRecord(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err.message);
@@ -54,6 +55,8 @@ const Register = () => {
       username:selecteduser.username,
       password:selecteduser.password
     })
+
+   
   }, [selecteduser]);
 
   //const handleReset = () => {
@@ -170,10 +173,10 @@ const handleDelete =(id, e)=>{
         <button className="btn">Back</button>
       </Link>
       <Link to="/login">
-        <button className="btn">Back to login</button>
+        <button className="btn">Login</button>
       </Link>
-   
-      <CSVLink
+        <button>
+        <CSVLink
         data={record}
         filename={"my-file.csv"}
         className="btn btn-primary"
@@ -181,6 +184,8 @@ const handleDelete =(id, e)=>{
       >
         Download me
       </CSVLink>
+        </button>
+     
       &nbsp;&nbsp;
       <button onClick={loadEmployeeDetail}>View</button>
       </div>
