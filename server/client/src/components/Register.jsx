@@ -6,7 +6,11 @@ import { CSVLink } from "react-csv";
 const Register = () => {
   // const [search,setSearch] =useState('');
   const [record, setRecord] = useState([]);
- 
+  const [selecteduser, setSelectedUser] = useState({
+    fullname: "",
+    username: "",
+    password: "",
+  });
 
   const [user, setUser] = useState({
     fullname: "",
@@ -34,7 +38,8 @@ const Register = () => {
             console.log(record);
           });*/
     await axios
-      .get("http://localhost:4000/user")
+    //"http://localhost:5000/user"
+      .get("/user")
       .then((res) => {
         //console.log(res);
         setRecord(res.data);
@@ -44,7 +49,17 @@ const Register = () => {
         console.log(err.message);
       });
   };
- 
+  useEffect(() => {
+    loadEmployeeDetail();
+    setUser({
+      fullname:selecteduser.fullname,
+      username:selecteduser.username,
+      password:selecteduser.password
+    })
+
+   
+  }, [selecteduser]);
+
   //const handleReset = () => {
    // Array.from(document.querySelectorAll("input")).forEach(
    //   (input) => (input.value = "")
@@ -53,8 +68,8 @@ const Register = () => {
   // Insert Employee Records
   const submitEmployeeRecord = async (e) => {
     e.preventDefault();
-
-    await axios.post("http://localhost:4000/user/add-user", user);
+    //http://localhost:5000
+    await axios.post("/user/add-user", user);
     
     console.log(user);
     loadEmployeeDetail();
@@ -64,15 +79,11 @@ const Register = () => {
     alert("Data Inserted");
   };
 
-  const [selecteduser, setSelectedUser] = useState({
-    fullname: "",
-    username: "",
-    password: "",
-  });
+ 
 // component={Link} to={`/edit/${name._id}`}
 const handleEdit =(id)=>{
   setUpdateFlag(true)
- alert(id)
+ // alert(id)
  const filterData = record.filter((user)=>user._id===id);
 //console.log(filterData[0].fullname);
   setSelectedUser({
@@ -89,7 +100,8 @@ const handleUpdate = (e)=>{
   //console.log(selecteduser.id);
   
   let id = selecteduser.id;
-  axios.put(`http://localhost:4000/user/edit-user/${id}`,user)
+  //http://localhost:5000
+  axios.put(`/user/edit-user/${id}`,user)
   .then((res)=>{
     console.log(res.data);   
     alert('Updated') 
@@ -105,21 +117,12 @@ const handleUpdate = (e)=>{
   })
 
 }
-useEffect(() => {
-  loadEmployeeDetail();
-  setUser({
-    fullname:selecteduser.fullname,
-    username:selecteduser.username,
-    password:selecteduser.password
-  })
-
- 
-}, [selecteduser]);
 
 const handleDelete =(id, e)=>{
  
  // alert(id)
- axios.delete(`http://localhost:5000/user/delete-user/${id}`)
+ //http://localhost:5000
+ axios.delete(`/user/delete-user/${id}`)
  .then((res)=>{
   console.log(res);
   loadEmployeeDetail();

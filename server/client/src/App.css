@@ -1,0 +1,136 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.inline-div{
+  margin: 5px 35%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #61dafb;
+  padding: 5px;
+
+}
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+  background: #333; 
+  color: white; 
+  font-weight: bold; 
+}
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+}
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+  .table{
+    border: none;
+  }
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+    border: 1px solid black;
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	/*tr { border: 1px solid #ccc; }*/
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid rgb(231, 224, 224); 
+		position: relative;
+		padding-left: 50%; 
+    /* padding-bottom: 10px; */
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		/* top: 6px; */
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+  td:nth-of-type(1):before { content: "Full Name"; }
+	td:nth-of-type(2):before { content: "Username"; }
+	td:nth-of-type(3):before { content: "Password"; }
+  td:nth-of-type(4):before { content: "Action"; }
+}
+.arrow-td{
+display: flex;
+justify-content: space-between;
+}
+.arrow-btn{
+  background-color: #61dafb;
+  border: none;
+  border-radius: 5px;
+}
+.arrow-btn:hover{
+  background-color: #d571e9;
+}
+#myForm{
+  border: 1px solid black;
+  margin: auto 35%;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: aqua;
+  background: linear-gradient(135deg,#A01257,#3201,#A01257);
+}
+input{
+  border-radius: 5px;
+}
+input:focus{
+  border-bottom-color: #A01257;
+}
