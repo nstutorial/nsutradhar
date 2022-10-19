@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className='App'>
     
-        <h1> Login Page</h1>
+        <h1> Login Page FROM</h1>
         <hr/>
         <form method='post'>
         
