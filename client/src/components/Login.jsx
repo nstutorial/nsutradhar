@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import Navbar from './Navbar';
 
 
 const Login = () => {
   return (
     <div className='App'>
-
-<h1> Login </h1>
+      <Navbar/>
+    <h1> Login </h1>
         <hr/>
         <form method='post'>
         

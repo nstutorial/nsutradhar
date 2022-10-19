@@ -9,7 +9,7 @@ import Edit from './components/Error';
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter>     
       <Routes>
         <Route path='/' element={<Home/>}/>       
         <Route path='/register' element={<Register/>}/>       

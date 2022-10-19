@@ -134,3 +134,10 @@ input{
 input:focus{
   border-bottom-color: #A01257;
 }
+.nav{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  text-decoration: none;
+  list-style: none;
+}
